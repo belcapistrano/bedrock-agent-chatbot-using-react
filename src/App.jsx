@@ -145,11 +145,14 @@ function App() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'x-api-key':import.meta.env.VITE_CHATBOT_API_KEY,
         },
         body: JSON.stringify({
           message: text,
           sessionId: sessionId,
           // You can add agentId and agentAliasId here if needed
+          agentId: import.meta.env.VITE_BEDROCK_AGENT_ID,
+          agentAliasId: import.meta.env.VITE_BEDROCK_AGENT_ALIAS_ID,
         })
       });
       
